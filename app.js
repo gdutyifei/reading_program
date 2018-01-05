@@ -10,9 +10,25 @@ App({
   onHide: function () {
     console.log('App Hide')
   },
+  // 全局变量
   globalData: {
     hasLogin: false,
-    openid: null
+    openid: null,
+    userInfo: {}
+  },
+  // 获取用户位置
+  getLocationInfo: function() {
+    var self = this;
+    wx.getLocation({
+      success: function(res) {
+        console.log(res);
+        var latitude = res.latitude;
+        var longitude = res.longitude;
+      },
+      fail: function(e) {
+        console.log(e);
+      }
+    })
   },
   // lazy loading openid
   getUserOpenId: function(callback) {
@@ -23,19 +39,18 @@ App({
     } else {
       wx.login({
         success: function(data) {
-          wx.request({
-            url: openIdUrl,
-            data: {
-              code: data.code
-            },
+          console.log(data);
+          var code = data.code;
+          console.log(code);
+          wx.getUserInfo({
             success: function(res) {
-              console.log('拉取openid成功', res)
-              self.globalData.openid = res.data.openid
-              callback(null, self.globalData.openid)
+              console.log(res);
+              var userInfo = res.rawData;
+              console.log(userInfo);
+              self.globalData.userInfo = userInfo;
             },
-            fail: function(res) {
-              console.log('拉取用户openid失败，将无法正常使用开放接口等服务', res)
-              callback(res)
+            fail: function(err) {
+              console.log('wx.getUserInfo 接口调用失败');
             }
           })
         },
