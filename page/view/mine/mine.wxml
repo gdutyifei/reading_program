@@ -1,2 +1,3 @@
 <!--page/view/mine/mine.wxml-->
 <text>page/view/mine/mine.wxml</text>
+<image src="{{ userInfo.avatarUrl }}"></image>

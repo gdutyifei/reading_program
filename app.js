@@ -31,34 +31,31 @@ App({
     })
   },
   // lazy loading openid
-  getUserOpenId: function(callback) {
+  getUserInfo: function(callback) {
     var self = this
-
-    if (self.globalData.openid) {
-      callback(null, self.globalData.openid)
-    } else {
-      wx.login({
-        success: function(data) {
-          console.log(data);
-          var code = data.code;
-          console.log(code);
-          wx.getUserInfo({
-            success: function(res) {
-              console.log(res);
-              var userInfo = res.rawData;
-              console.log(userInfo);
-              self.globalData.userInfo = userInfo;
-            },
-            fail: function(err) {
-              console.log('wx.getUserInfo 接口调用失败');
-            }
-          })
-        },
-        fail: function(err) {
-          console.log('wx.login 接口调用失败，将无法正常使用开放接口等服务', err)
-          callback(err)
-        }
-      })
-    }
-  }
+    console.log(self.globalData.userInfo); 
+        wx.login({
+          success: function (data) {
+            console.log(data);
+            var code = data.code;
+            console.log(code);
+            wx.getUserInfo({
+              success: function (res) {
+                console.log(res);
+                var userInfo = res.rawData;
+                console.log(userInfo);
+                self.globalData.userInfo = userInfo;
+                typeof callback == "function" && callback(self.globalData.userInfo, res);
+              },
+              fail: function (err) {
+                console.log('wx.getUserInfo 接口调用失败');
+              }
+            })
+          },
+          fail: function (err) {
+            console.log('wx.login 接口调用失败，将无法正常使用开放接口等服务', err)
+            callback(err)
+          }
+        })
+      } 
 })
