@@ -6,17 +6,21 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo: app.globalData.userInfo
+    userInfo: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var self = this;
     app.getUserInfo(function(e) {
-      console.log(e);
+      // console.log(e);
+      self.setData({
+        userInfo: JSON.parse(e)
+      })
     });
-   
+    
   },
 
   /**
