@@ -1,3 +1,9 @@
 <!--page/view/mine/mine.wxml-->
-<text>page/view/mine/mine.wxml</text>
-<image src="{{ userInfo.avatarUrl }}"></image>
+<view class='mine'>
+<view class='userInfo'>
+  <image class='userInfo-avatar' src="{{ userInfo.avatarUrl }}"></image>
+  <text class='userInfo-nickName'>{{ userInfo.nickName }}</text>
+  <image class='arrow' src='../../../image/arrow.png'></image>
+</view>
+  
+</view>
