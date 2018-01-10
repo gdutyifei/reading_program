@@ -1,9 +1,21 @@
 <!--page/view/mine/mine.wxml-->
 <view class='mine'>
-<view class='userInfo'>
-  <image class='userInfo-avatar' src="{{ userInfo.avatarUrl }}"></image>
-  <text class='userInfo-nickName'>{{ userInfo.nickName }}</text>
-  <image class='arrow' src='../../../image/arrow.png'></image>
-</view>
-  
+  <view class='userInfo'>
+    <view class='part-userInfo'>
+      <image class='userInfo-avatar' src="{{ userInfo.avatarUrl }}"></image>
+      <text class='userInfo-nickName'>{{ userInfo.nickName }}</text>
+    </view>
+
+    <image class='arrow' src='../../../image/arrow.png'></image>
+  </view>
+  <view class='ul-list'>
+    <view class='li-item'>
+      <text class='item-text'>创建活动</text>
+      <image class='arrow' src='../../../image/arrow.png'></image>
+    </view>
+    <view class='li-item'>
+      <text class='item-text'>我的参与历史</text>
+      <image class='arrow' src='../../../image/arrow.png'></image>
+    </view>
+  </view>
 </view>
