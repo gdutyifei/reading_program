@@ -1,7 +1,8 @@
 {
   "pages": [
     "page/view/index/index",
-    "page/view/mine/mine"
+    "page/view/mine/mine",
+    "page/view/ranking/ranking"
   ],
   "window": {
     "navigationBarTextStyle": "black",
@@ -24,7 +25,7 @@
       {
         "selectedIconPath": "/image/icon_API_HL.png",
         "iconPath": "/image/icon_API.png",
-        "pagePath": "page/view/index/index",
+        "pagePath": "page/view/ranking/ranking",
         "text": "Persis"
       },
       {

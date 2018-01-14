@@ -1,0 +1,27 @@
+/* page/view/ranking/ranking.wxss */
+.left {
+  display: flex;
+  align-items: center;
+  width: 90%;
+}
+.info-header {
+  background-color: #FFF;
+  width: 100%;
+  height: 150rpx;
+  display: flex;
+}
+.userInfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  border-radius: 50%;
+  margin: 0 20rpx;
+}
+.ranking-info {
+  color: #aaa;
+  font-size: 26rpx;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+}

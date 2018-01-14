@@ -1,0 +1,23 @@
+<!--page/view/ranking/ranking.wxml-->
+<view class='ranking'>
+  <view class='info-header'>
+    <view class='left'>
+      <view>
+        <image class='userInfo-avatar' src="{{ userInfo.avatarUrl }}"></image>
+      </view>
+      <view>
+        <text>{{ userInfo.nickName }}</text>
+        <view  class='ranking-info'>
+          <text>第</text>
+          <text>3</text>
+          <text>名</text>
+        </view>
+      </view>
+    </view>
+    <view class='right'>
+      <text>11</text>
+    </view>
+  </view>
+
+  <view class='ranking-list'></view>
+</view>
