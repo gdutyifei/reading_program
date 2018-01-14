@@ -2,7 +2,9 @@
 .index {
   width: 100%;
   height: 100%;
-  
+}
+.content {
+  margin-top: 20%;
 }
 .block {
   width: 90%;
@@ -12,20 +14,57 @@
   margin-top: 5%;
 }
 .book-cover {
+  width: 60%;
+}
+.books {
+  margin: 35rpx 20rpx;
+  width: 100%;
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
+}
+.left {
+  display: flex;
+  align-items: center;
+  width: 45%;
+}
+.right {
+  display: flex;
   flex-direction: column;
-  width: 100%;
+  align-items: center;
+  justify-content: center;
+  width: 45%;
 }
-.book-cover image {
-  margin: 5% auto;
-  width: 40%;
+.join {
+  display: inline-block;
+  background-color: #62b900;
+  color: #FFF;
+  padding: 10rpx 20rpx;
+  border-radius: 10rpx;
+  margin-top: 50rpx;
 }
-
-.book-name {
+.period {
   margin: auto;
   text-align: center;
   font-size: 46rpx;
   width: 80%;
+  padding-top: 30rpx;
+}
+
+.date {
+  margin: auto;
+  text-align: center;
+  font-size: 26rpx;
+}
+.members {
+  display: block;
+  
+}
+.head-image {
+  width: 40rpx;
+}
+.num-members {
+  font-size: 24rpx;
+  text-align: center;
 }

@@ -1,11 +1,53 @@
 <!--page/view/index/index.wxml-->
-<view class='index'>
-  <view class='block'>
-    <view class='book-cover'>
-      <image src='https://gss3.bdstatic.com/-Po3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike92%2C5%2C5%2C92%2C30/sign=b3d77da337adcbef15397654cdc645b8/dcc451da81cb39dbd5882331d6160924ab183008.jpg' mode="widthFix"></image>
+<view class='block'>
+  <view class='period'>
+    <text>第</text>
+    <text>31</text>
+    <text>期读书会</text>
+  </view>
+  <view class='date'>
+    <text>2018-01-12</text>
+  </view>
+  <view class='content'>
+    <view class='books'>
+      <view class='left'>
+        <image class='book-cover' src='../../../image/shijing.jpg' mode='widthFix'></image>
+      </view>
+      <view class='right'>
+        <view class='members'>
+          <image src='../../../image/default_image.png' mode='widthFix' class='head-image'></image>
+          <image src='../../../image/default_image.png' mode='widthFix' class='head-image'></image>
+          <image src='../../../image/default_image.png' mode='widthFix' class='head-image'></image>
+        </view>
+        <view class='num-members'>
+          <text>已有</text>
+          <text>3</text>
+          <text>人参加</text>
+        </view>
+        <view class='join'>
+          <text>参加</text>
+        </view>
+      </view>
     </view>
-    <view class='book-name'>
-      <text>史记</text>
+    <view class='books'>
+      <view class='left'>
+        <image class='book-cover' src='../../../image/shiji.jpg' mode='widthFix'></image>
+      </view>
+      <view class='right'>
+        <view class='members'>
+          <image src='../../../image/default_image.png' mode='widthFix' class='head-image'></image>
+          <image src='../../../image/default_image.png' mode='widthFix' class='head-image'></image>
+          <image src='../../../image/default_image.png' mode='widthFix' class='head-image'></image>
+        </view>
+        <view class='num-members'>
+          <text>已有</text>
+          <text>3</text>
+          <text>人参加</text>
+        </view>
+        <view class='join'>
+          <text>参加</text>
+        </view>
+      </view>
     </view>
   </view>
 </view>
