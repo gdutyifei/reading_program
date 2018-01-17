@@ -1,0 +1,27 @@
+<!--page/view/create/create.wxml-->
+<view class='create'>
+  <view class='form-data'>
+    <text>活动期数</text>
+    <input type='number'></input>
+  </view>
+  <view class='form-data'>
+    <text>活动日期</text>
+    <picker mode="date" value="{{date}}" start="2015-09-01" end="9999-12-31" bindchange="bindDateChange">
+      <view class="date-result">
+        {{date}}
+      </view>
+    </picker>
+  </view>
+  <view class='form-data'>
+    <text>图书</text>
+    <checkbox-group bindchange="checkboxChange">
+      <label class="checkbox" wx:for="{{ books }}" wx:key="item.id">
+        <checkbox value="{{item.id}}" checked="{{item.checked}}" />{{item.name}}
+      </label>
+    </checkbox-group>
+  </view>
+
+  <view class='create-btn'>
+    <text>创建活动</text>
+  </view>
+</view>
