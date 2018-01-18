@@ -9,10 +9,13 @@
     <image class='arrow' src='../../../image/arrow.png'></image>
   </view>
   <view class='ul-list'>
-    <view class='li-item'>
-      <text class='item-text'>创建活动</text>
-      <image class='arrow' src='../../../image/arrow.png'></image>
-    </view>
+    <navigator hover-class="none"  url="/page/view/create/create">
+      <view class='li-item'>
+        <text class='item-text'>创建活动</text>
+        <image class='arrow' src='../../../image/arrow.png'></image>
+      </view>
+    </navigator>
+    
     <view class='li-item'>
       <text class='item-text'>我的参与历史</text>
       <image class='arrow' src='../../../image/arrow.png'></image>
