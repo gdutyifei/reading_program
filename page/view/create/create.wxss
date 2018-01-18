@@ -25,7 +25,7 @@ label {
   margin: 10rpx 0;
 }
 
-.create-btn {
+.create-btn button {
   text-align: center;
   background-color: #62b900;
   width: 40%;
