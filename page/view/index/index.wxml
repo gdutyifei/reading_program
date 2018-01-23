@@ -11,7 +11,7 @@
   <view class='content'>
     <view class='books'>
       <view class='left'>
-        <image class='book-cover' src='../../../image/shijing.jpg' mode='widthFix'></image>
+        <image class='book-cover' src='https://img3.doubanio.com/lpic/s1979223.jpg' mode='widthFix'></image>
       </view>
       <view class='right'>
         <view class='members'>

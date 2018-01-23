@@ -1,4 +1,6 @@
 // page/view/create/create.js
+var req = require('../../../util/request.js');
+var config = require('../../../config.js');
 Page({
 
   /**
@@ -77,6 +79,14 @@ Page({
   },
   formSubmit: function (e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
+    var data = e.detail.value;
+    var host = config.host;
+    console.log(config.host);
+    req.getRequest(host + "/activity/insertActivities", data, "GET", function (res) {
+      console.log(res);
+    }, function (err) {
+
+    });
   },
   formReset: function () {
     console.log('form发生了reset事件')

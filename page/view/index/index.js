@@ -1,4 +1,6 @@
 // page/view/index/index.js
+var req = require('../../../util/request.js');
+var config = require('../../../config.js');
 Page({
 
   /**
@@ -12,7 +14,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    var host = config.host;
+    console.log(config.host);
+    req.getRequest(host + "/book/getBookList", {}, "POST", function(res) {
+
+    }, function(err) {
+
+    });
   },
 
   /**

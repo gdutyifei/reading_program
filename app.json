@@ -1,9 +1,10 @@
 {
   "pages": [
+    "page/view/create/create",
     "page/view/index/index",
     "page/view/mine/mine",
-    "page/view/ranking/ranking",
-    "page/view/create/create"
+    "page/view/ranking/ranking"
+    
     
   ],
   "window": {
