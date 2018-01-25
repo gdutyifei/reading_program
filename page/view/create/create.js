@@ -8,17 +8,28 @@ Page({
    */
   data: {
     date: "",
-    books: [
-      {id: '1', name: '史记'},
-      {id: '2', name: '诗经'}
-    ]
+    books: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var self = this;
+    var host = config.host;
+    console.log(config.host);
+    req.getRequest(host + "/book/getBookList", {}, "POST", function (res) {
+      var data = res.data;
+      if(data.code == 200) {
+        var bookList = data.data;
+        console.log(bookList);
+        self.setData({
+          books: bookList
+        })
+      }
+    }, function (err) {
+
+    });
   },
 
   /**

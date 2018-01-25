@@ -17,7 +17,7 @@
       <text>图书</text>
       <checkbox-group name="books" bindchange="checkboxChange">
         <label class="checkbox" wx:for="{{ books }}" wx:key="item.id">
-          <checkbox value="{{item.id}}" checked="{{item.checked}}" />{{item.name}}
+          <checkbox value="{{item.id}}" checked="{{item.checked}}" />{{item.book_name}}
         </label>
       </checkbox-group>
     </view>
