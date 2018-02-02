@@ -63,6 +63,7 @@
 }
 .head-image {
   width: 40rpx;
+  margin: 10rpx;
 }
 .num-members {
   font-size: 24rpx;

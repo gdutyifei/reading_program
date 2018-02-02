@@ -1,47 +1,25 @@
 <!--page/view/index/index.wxml-->
 <view class='block'>
-  <view class='period'>
+  <view class="period">
     <text>第</text>
-    <text>31</text>
+    <text>{{activityInfo.period}}</text>
     <text>期读书会</text>
   </view>
   <view class='date'>
-    <text>2018-01-12</text>
+    <text>{{activityInfo.activityDate}}</text>
   </view>
   <view class='content'>
-    <view class='books'>
-      <view class='left'>
-        <image class='book-cover' src='https://img3.doubanio.com/lpic/s1979223.jpg' mode='widthFix'></image>
+    <view class='books' wx:for="{{bookInfo}}" wx:for-item="item">
+      <view class='left' data-id="{{item[0].id}}">
+        <image class='book-cover' src="{{item[0].cover_url}}" mode='widthFix'></image>
       </view>
       <view class='right'>
-        <view class='members'>
-          <image src='../../../image/default_image.png' mode='widthFix' class='head-image'></image>
-          <image src='../../../image/default_image.png' mode='widthFix' class='head-image'></image>
-          <image src='../../../image/default_image.png' mode='widthFix' class='head-image'></image>
+        <view class='members' wx:if="{{item[0].participates.length != 0}}" >
+          <image wx:for="{{item[0].participates}}"  wx:for-item="participatesItem"  src="{{participatesItem.avatar_url}}" mode='widthFix' class='head-image'></image>
         </view>
         <view class='num-members'>
           <text>已有</text>
-          <text>3</text>
-          <text>人参加</text>
-        </view>
-        <view class='join'>
-          <text>参加</text>
-        </view>
-      </view>
-    </view>
-    <view class='books'>
-      <view class='left'>
-        <image class='book-cover' src='../../../image/shiji.jpg' mode='widthFix'></image>
-      </view>
-      <view class='right'>
-        <view class='members'>
-          <image src='../../../image/default_image.png' mode='widthFix' class='head-image'></image>
-          <image src='../../../image/default_image.png' mode='widthFix' class='head-image'></image>
-          <image src='../../../image/default_image.png' mode='widthFix' class='head-image'></image>
-        </view>
-        <view class='num-members'>
-          <text>已有</text>
-          <text>3</text>
+          <text>{{item[0].participates.length}}</text>
           <text>人参加</text>
         </view>
         <view class='join'>
