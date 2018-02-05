@@ -1,5 +1,5 @@
 <!--page/view/index/index.wxml-->
-<view class='block'>
+<view class='block' wx:if="{{activityInfo != '' && activityInfo != null}}">
   <view class="period">
     <text>第</text>
     <text>{{activityInfo.period}}</text>
@@ -22,8 +22,8 @@
           <text>{{item[0].participates.length}}</text>
           <text>人参加</text>
         </view>
-        <view class='join'>
-          <text>参加</text>
+        <view class='join' bindtap="join" data-id="{{ item[0].id }}" data-index="">
+          <text>{{participatesItem.isJoin == 'true' ? '已参加': '参加'}}</text>
         </view>
       </view>
     </view>
