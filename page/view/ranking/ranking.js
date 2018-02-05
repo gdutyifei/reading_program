@@ -1,12 +1,16 @@
 // page/view/ranking/ranking.js
 var app = getApp();
+var req = require('../../../util/request.js');
+var config = require('../../../config.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    userInfo: {}
+    userInfo: {},
+    personalRangeInfo: {},
+    rangeList: {}
   },
 
   /**
@@ -14,12 +18,28 @@ Page({
    */
   onLoad: function (options) {
     var self = this;
-    app.getUserInfo(function (e) {
-      // console.log(e);
-      self.setData({
-        userInfo: JSON.parse(e)
-      })
+    var host = config.host;
+    self.setData({
+      userInfo: JSON.parse(app.globalData.userInfo)
+    })
+    req.getRequest(host + "/participation/getRangeList", {}, "GET", function (res) {
+      console.log(res);
+      var data = res.data;
+      if(data != null && data != null) {
+        console.log(data.rangeList);
+        
+        self.setData({
+          personalRangeInfo: data.personalRangeInfo,
+          rangeList: data.rangeList
+        });
+      }
     });
+    // app.getUserInfo(function (e) {
+    //   // console.log(e);
+    //   self.setData({
+    //     userInfo: JSON.parse(e)
+    //   })
+    // });
   },
 
   /**
