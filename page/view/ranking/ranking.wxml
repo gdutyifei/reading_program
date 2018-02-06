@@ -8,16 +8,31 @@
       <view>
         <text>{{ userInfo.nickName }}</text>
         <view  class='ranking-info'>
-          <text>第</text>
-          <text>3</text>
-          <text>名</text>
+          <text>第{{ personalRangeInfo.range }}名</text>
         </view>
       </view>
     </view>
     <view class='right'>
-      <text>11</text>
+      <text>{{ personalRangeInfo.count }}</text>
     </view>
   </view>
 
-  <view class='ranking-list'></view>
+  <view class='ranking-list'>
+    <view class='ranking-li' wx:for="{{ rangeList }}" wx:for-item="info">
+      <view class='ranking-left'>
+        <view class='ranking-range'>
+          <text>{{ info.range }}</text>
+        </view>
+        <view>
+          <image class='userInfo-avatar' src="{{ info.userInfo.avatar_url }}"></image>
+        </view>
+        <view>
+          <text>{{ info.userInfo.nick_name }}</text>
+        </view>
+      </view>
+      <view class='ranking-right'>
+        <text>{{ info.count }}</text>
+      </view>
+    </view>
+  </view>
 </view>

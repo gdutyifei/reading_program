@@ -1,4 +1,6 @@
-const openIdUrl = require('./config').openIdUrl
+const openIdUrl = require('./config').openIdUrl;
+const req = require('./util/request.js');
+const config = require('./config.js');
 
 App({
   onLaunch: function () {
@@ -36,15 +38,24 @@ App({
     console.log(self.globalData.userInfo); 
         wx.login({
           success: function (data) {
-            console.log(data);
             var code = data.code;
-            console.log(code);
             wx.getUserInfo({
               success: function (res) {
                 console.log(res);
                 var userInfo = res.rawData;
-                console.log(userInfo);
+                // console.log(userInfo);
                 self.globalData.userInfo = userInfo;
+                
+                // 插入用户数据
+                var host = config.host;
+                userInfo = JSON.parse(userInfo);
+                userInfo.code = code;
+                req.getRequest(host + "/weixinApi/getOpenidByCode", userInfo, "GET", function (res) {
+                  var data = res.data;
+                  var openid = data.data;
+                  // console.log(openid);
+                  self.globalData.openid = openid;
+                  });
                 typeof callback == "function" && callback(self.globalData.userInfo, res);
               },
               fail: function (err) {
