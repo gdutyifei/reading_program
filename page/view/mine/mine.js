@@ -14,11 +14,8 @@ Page({
    */
   onLoad: function (options) {
     var self = this;
-    app.getUserInfo(function(e) {
-      // console.log(e);
-      self.setData({
-        userInfo: JSON.parse(e)
-      })
+    self.setData({
+      userInfo: JSON.parse(app.globalData.userInfo)
     });
     
   },
