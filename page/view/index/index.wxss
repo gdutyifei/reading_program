@@ -69,3 +69,20 @@
   font-size: 24rpx;
   text-align: center;
 }
+
+
+.none {
+  text-align: center;
+  font-size: 50rpx;
+  margin-bottom: 50rpx;
+}
+
+.introduction {
+  text-align: center;
+  margin: 0 5%;
+}
+
+.introduction image {
+  width: 90%;
+  margin: 10rpx auto;
+}

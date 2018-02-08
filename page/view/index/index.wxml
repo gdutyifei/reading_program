@@ -29,3 +29,17 @@
     </view>
   </view>
 </view>
+
+<view class='block' wx:if="{{ activityInfo == '' || activityInfo == null }}">
+  <view class='none'>
+    <text >今天没有活动哦</text>
+  </view>
+  <view class='introduction'>
+    <view>
+      <text>采取读书会的方式研读文本，不设主讲人，素心者三五人，大家“奇文共欣赏，疑义相与析”，在充分讨论中深入了解经典。</text>
+    </view>
+    <view>
+      <image src='/image/introduction.jpeg' mode='widthFix'></image>
+    </view>
+  </view>
+</view>
