@@ -1,0 +1,19 @@
+<!--page/view/history/history.wxml-->
+<view class='history-list'>
+  <view class='history-item' wx:for="{{ historyList }}" wx:for-item="historyItem">
+    <view class='left'>
+      <view>
+        <text class='peroid'>第{{ historyItem.info.period }}期活动</text>
+      </view>
+      <view>
+        <text class='date'>{{ historyItem.info.activityDate }}</text>
+      </view>
+    </view>
+
+    <view class='right'>
+      <view>
+        <text class='book-name'>{{ historyItem.info.bookName }}</text>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,39 @@
+/* page/view/history/history.wxss */
+.history-item {
+  display: flex;
+  align-items: center;
+  background-color: #FFF;
+  border-bottom: 1rpx solid #E8E8E8;
+  width: 100%;
+  height: 150rpx;
+}
+.left .right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.left {
+  width: 80%;
+  margin-left: 5%;
+  
+}
+
+.right {
+  margin-right: 5%;
+}
+
+.peroid {
+  font-size: 30rpx;
+  color: #666;
+}
+
+.date {
+  font-size: 26rpx;
+  color: #aaa;
+}
+
+.book-name {
+  font-size: 28rpx;
+  color: #666;
+}
