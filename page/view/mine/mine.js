@@ -1,3 +1,5 @@
+var req = require('../../../util/request.js');
+var config = require('../../../config.js');
 var app = getApp();
 // page/view/mine/mine.js
 Page({
@@ -6,7 +8,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo: {}
+    userInfo: {},
+    isManager: null
   },
 
   /**
@@ -14,10 +17,23 @@ Page({
    */
   onLoad: function (options) {
     var self = this;
+    var host = config.host;
+    var openid = app.globalData.openid;
     self.setData({
       userInfo: JSON.parse(app.globalData.userInfo)
     });
     
+    req.getRequest(host + "/user/getUserByOpenid", { openid }, "POST", function (res) {
+      if (res) {
+        var data = res.data.data[0];
+        console.log(data);
+        if (data.role != null) {
+          self.setData({
+            isManager: "Y"
+          });
+        }
+      }
+    })
   },
 
   /**

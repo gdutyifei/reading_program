@@ -3,7 +3,8 @@
     "page/view/index/index",
     "page/view/create/create",
     "page/view/mine/mine",
-    "page/view/ranking/ranking"
+    "page/view/ranking/ranking",
+    "page/view/history/history"
   ],
   "window": {
     "navigationBarTextStyle": "black",
