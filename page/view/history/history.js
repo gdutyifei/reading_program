@@ -8,7 +8,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    historyList: []
+    historyList: [],
+    hasData: false
   },
 
   /**
@@ -19,10 +20,12 @@ Page({
     var host = config.host;
     var openid = app.globalData.openid;
     req.getRequest(host + "/api/getHistoryList", { openid }, "GET", function (res) {
-      if(res) {
+      if (res.data.data) {
         self.setData({
-          historyList: res.data
+          historyList: res.data.data,
         });
+      } else {
+        
       }
     })
   },

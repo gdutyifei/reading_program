@@ -10,7 +10,8 @@ Page({
   data: {
     userInfo: {},
     personalRangeInfo: {},
-    rangeList: {}
+    rangeList: {},
+    none: false
   },
 
   /**
@@ -19,20 +20,27 @@ Page({
   onLoad: function (options) {
     var self = this;
     var host = config.host;
+    wx.showLoading({
+      title: '加载中，请稍等',
+    })
     self.setData({
       userInfo: JSON.parse(app.globalData.userInfo)
     })
     req.getRequest(host + "/participation/getRangeList", {}, "GET", function (res) {
       console.log(res);
       var data = res.data;
-      if(data != null && data != null) {
-        console.log(data.rangeList);
-        
+      if(data.data) {
+        console.log(data.data.rangeList);
         self.setData({
-          personalRangeInfo: data.personalRangeInfo,
-          rangeList: data.rangeList
+          personalRangeInfo: data.data.personalRangeInfo,
+          rangeList: data.data.rangeList
+        });
+      } else {
+        self.setData({
+          none: true
         });
       }
+      wx.hideLoading();
     });
     // app.getUserInfo(function (e) {
     //   // console.log(e);

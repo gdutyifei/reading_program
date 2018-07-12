@@ -1,5 +1,6 @@
 {
   "pages": [
+    "page/view/welcome/welcome",
     "page/view/index/index",
     "page/view/create/create",
     "page/view/mine/mine",

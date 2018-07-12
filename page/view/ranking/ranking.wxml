@@ -8,7 +8,8 @@
       <view>
         <text>{{ userInfo.nickName }}</text>
         <view  class='ranking-info'>
-          <text>第{{ personalRangeInfo.range }}名</text>
+          <text wx:if="{{ none }}">暂无排名</text>
+          <text wx:else>第{{ personalRangeInfo.range }}名</text>
         </view>
       </view>
     </view>
@@ -17,7 +18,10 @@
     </view>
   </view>
 
-  <view class='ranking-list'>
+  <view class='no-tip' wx:if="{{ none }}">
+    <text>暂无排名</text>
+  </view>
+  <view class='ranking-list' wx:else>
     <view class='ranking-li' wx:for="{{ rangeList }}" wx:for-item="info">
       <view class='ranking-left'>
         <view class='ranking-range'>

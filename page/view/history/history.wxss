@@ -37,3 +37,10 @@
   font-size: 28rpx;
   color: #666;
 }
+
+.no-tip {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50%;
+}

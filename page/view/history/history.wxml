@@ -16,4 +16,8 @@
       </view>
     </view>
   </view>
+
+  <view class='no-tip' wx:if="{{historyList.length == 0}}">
+    <text>暂无参与记录，要多多参与哦！</text>
+  </view>
 </view>

@@ -6,7 +6,7 @@
 // 小程序后台服务解决方案：https://www.qcloud.com/solution/la
 
 // var host = "pxy-wx-sit1.banketech.com"
-var host = "http://127.0.0.1:3000"
+var host = "https://xiaoceyan.cn"
 
 var config = {
 
