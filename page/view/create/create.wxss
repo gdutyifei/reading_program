@@ -4,7 +4,7 @@
   color: #5C5C5C;
   font-size: 28rpx;
 }
-.form-data input, .date-result {
+.form-data > input, .date-result {
   height:88rpx;
   line-height:88rpx;
   color:#5c5c5c;
@@ -12,17 +12,21 @@
   width:100%;
   font-size:26rpx;
   vertical-align:middle;
-  padding-left:40rpx;
+  /* padding-left:40rpx; */
   margin: 15rpx 0;
 }
 checkbox-group {
   padding-left:40rpx;
 }
+radio-group {
+  padding: 0 40rpx;
+}
+
 label {
+  display: inline-block;
   font-size:26rpx;
   color:#5c5c5c;
-  display: block;
-  margin: 10rpx 0;
+  margin: 10rpx;
 }
 
 .create-btn button {

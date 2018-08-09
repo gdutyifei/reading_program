@@ -24,7 +24,7 @@ Page({
       title: '加载中，请稍等',
     })
     self.setData({
-      userInfo: JSON.parse(app.globalData.userInfo)
+      userInfo: app.globalData.userInfo
     })
     req.getRequest(host + "/participation/getRangeList", {}, "GET", function (res) {
       console.log(res);

@@ -18,9 +18,9 @@ Page({
    */
   onLoad: function (options) {
     var self = this;
-    app.getUserInfo(function (e) {
+    // app.getUserInfo(function (e) {
       
-    });
+    // });
     var host = config.host;
     
     req.getRequest(host + "/api/getIndexInformation", {}, "POST", function(res) {

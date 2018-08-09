@@ -20,7 +20,7 @@ Page({
     var host = config.host;
     var openid = app.globalData.openid;
     self.setData({
-      userInfo: JSON.parse(app.globalData.userInfo)
+      userInfo: app.globalData.userInfo
     });
     
     req.getRequest(host + "/user/getUserByOpenid", { openid }, "POST", function (res) {
