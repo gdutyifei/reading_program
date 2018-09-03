@@ -11,9 +11,7 @@
     </view>
 
     <view class='right'>
-      <view>
         <text class='book-name'>{{ historyItem.info.bookName }}</text>
-      </view>
     </view>
   </view>
 

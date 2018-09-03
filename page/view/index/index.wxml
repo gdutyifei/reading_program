@@ -9,20 +9,20 @@
     <text>{{activityInfo.activityDate}}</text>
   </view>
   <view class='content'>
-    <view class='books' wx:for="{{bookInfo}}" wx:for-item="item">
-      <view class='left' data-id="{{item[0].id}}">
-        <image class='book-cover' src="{{item[0].cover_url}}" mode='widthFix'></image>
+    <view class='books' wx:for="{{bookInfo}}" wx:for-index="index" wx:for-item="item">
+      <view class='left' data-id="{{item.id}}" data-bookId="{{item.book_infos.id}}">
+        <image class='book-cover' src="{{item.book_infos.cover_url}}" mode='widthFix'></image>
       </view>
       <view class='right'>
-        <view class='members' wx:if="{{item[0].participates.length != 0}}" >
-          <image wx:for="{{item[0].participates}}"  wx:for-item="participatesItem"  src="{{participatesItem.avatar_url}}" mode='widthFix' class='head-image'></image>
+        <view class='members' wx:if="{{item.participates.length != 0}}" >
+          <image wx:for="{{item.participates}}"  wx:for-item="participatesItem"  src="{{participatesItem.avatar_url}}" mode='widthFix' class='head-image'></image>
         </view>
         <view class='num-members'>
           <text>已有</text>
-          <text>{{item[0].participates.length}}</text>
+          <text>{{item.participates.length}}</text>
           <text>人参加</text>
         </view>
-        <view class='join' bindtap="join" data-id="{{ item[0].id }}" data-index="">
+        <view class='join' bindtap="join" data-id="{{ item.id }}" data-bookId="{{item.book_infos.id}}" data-index="{{index}}">
           <text>{{participatesItem.isJoin == 'true' ? '已参加': '参加'}}</text>
         </view>
       </view>

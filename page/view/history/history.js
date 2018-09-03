@@ -20,9 +20,9 @@ Page({
     var host = config.host;
     var openid = app.globalData.openid;
     req.getRequest(host + "/api/getHistoryList", { openid }, "GET", function (res) {
-      if (res.data.data) {
+      if (res.data) {
         self.setData({
-          historyList: res.data.data,
+          historyList: res.data,
         });
       } else {
         

@@ -34,7 +34,6 @@ Page({
                   console.log(res);
                   var userInfo = res.userInfo;
                   userInfo.code = code
-                  app.globalData.userInfo = userInfo;
                   self.getCodeByUserInfo(userInfo);
                 }
               })
@@ -107,6 +106,13 @@ Page({
       var openid = data.data;
       // console.log(openid);
       app.globalData.openid = openid;
+      // 自己的坑自己填
+      var newUserInfo = {};
+      newUserInfo.avatar_url = userInfo.avatarUrl;
+      newUserInfo.nick_name = userInfo.nickName;
+      newUserInfo.openid = openid;
+
+      app.globalData.userInfo = newUserInfo;
       wx.hideLoading();
       wx.switchTab({
         url: '/page/view/index/index'

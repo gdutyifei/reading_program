@@ -95,6 +95,22 @@ Page({
     console.log(config.host);
     req.getRequest(host + "/activity/insertActivities", data, "GET", function (res) {
       console.log(res);
+      if(res.data.code == '200') {
+        wx.showToast({
+          title: '创建活动成功！',
+          icon: 'none'
+        })
+        setTimeout(function () {
+          wx.switchTab({
+            url: '/page/view/index/index',
+          })
+        }, 2000);
+      } else if(res.data.code == "999") {
+        wx.showToast({
+          title: '活动已经存在！',
+          icon: 'none'
+        })
+      }
     }, function (err) {
 
     });

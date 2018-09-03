@@ -14,13 +14,15 @@
 }
 
 .left {
-  width: 80%;
+  width: 70%;
   margin-left: 5%;
   
 }
 
 .right {
   margin-right: 5%;
+  text-align: right;
+  width: 25%;
 }
 
 .peroid {

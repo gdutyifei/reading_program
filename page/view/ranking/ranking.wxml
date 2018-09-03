@@ -2,11 +2,9 @@
 <view class='ranking'>
   <view class='info-header'>
     <view class='left'>
+        <image class='userInfo-avatar' src="{{ userInfo.avatar_url }}"></image>
       <view>
-        <image class='userInfo-avatar' src="{{ userInfo.avatarUrl }}"></image>
-      </view>
-      <view>
-        <text>{{ userInfo.nickName }}</text>
+        <text>{{ userInfo.nick_name }}</text>
         <view  class='ranking-info'>
           <text wx:if="{{ none }}">暂无排名</text>
           <text wx:else>第{{ personalRangeInfo.range }}名</text>
@@ -27,9 +25,7 @@
         <view class='ranking-range'>
           <text>{{ info.range }}</text>
         </view>
-        <view>
           <image class='userInfo-avatar' src="{{ info.userInfo.avatar_url }}"></image>
-        </view>
         <view>
           <text>{{ info.userInfo.nick_name }}</text>
         </view>

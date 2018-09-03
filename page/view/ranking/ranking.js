@@ -26,14 +26,16 @@ Page({
     self.setData({
       userInfo: app.globalData.userInfo
     })
-    req.getRequest(host + "/participation/getRangeList", {}, "GET", function (res) {
+    let openid = app.globalData.openid;
+    console.log(openid);
+    req.getRequest(host + "/participation/getRangeList", { openid: openid}, "GET", function (res) {
       console.log(res);
       var data = res.data;
-      if(data.data) {
-        console.log(data.data.rangeList);
+      if(data) {
+        console.log(data.rangeList);
         self.setData({
-          personalRangeInfo: data.data.personalRangeInfo,
-          rangeList: data.data.rangeList
+          personalRangeInfo: data.personalRangeInfo,
+          rangeList: data.rangeList
         });
       } else {
         self.setData({

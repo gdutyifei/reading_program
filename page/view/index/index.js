@@ -27,33 +27,36 @@ Page({
       var data = res.data;
       console.log(res.data);
       var code = data.code;
-      if(code == '999') {
+      var bookInfo = data.data;
+      if(code == '999' || ! bookInfo) {
         console.log("今天没有活动");
       } else {
-        var bookInfo = data.bookInfo;
         for (var i in bookInfo) {
-          console.log(bookInfo[i][0].participates);
-          console.log(bookInfo[i][0].participates.length);  
-          if (bookInfo[i][0].participates.length > 0) {
-            var userInfos = bookInfo[i][0].participates;
+          bookInfo[i].book_infos = JSON.parse(bookInfo[i].book_infos)[0];
+          if (bookInfo[i].participates.length > 0) {
+            var userInfos = bookInfo[i].participates;
             console.log(userInfos);
+            let newUserInfos = []
             for (var j in userInfos) {
-              if (userInfos[j].openid == self.openid) {
+              let userInfo = JSON.parse(userInfos[j].user_info);
+              console.log(userInfo);
+              if (userInfo.openid == self.openid) {
                 // 本人已参加了
-                userInfos[j].isJoin = 'true';
+                userInfo.isJoin = 'true';
               } else {
-                userInfos[j].isJoin = 'false';
+                userInfo.isJoin = 'false';
               }
+              newUserInfos.push(userInfo);
             }
-            bookInfo[i].participates = userInfos;
+            bookInfo[i].participates = newUserInfos;
           }
 
         }
 
         var json = {
-          id: data.id,
-          period: data.period,
-          activityDate: data.activity_date
+          // id: data.id,
+          period: bookInfo[0].period,
+          activityDate: bookInfo[0].activity_date
         };
         console.log(111);
         console.log(json);
@@ -117,10 +120,14 @@ Page({
   
   },
   join: function(e) {
+    console.log(e);
     var self = this;
-    var userInfo = this.userInfo;
-    var bookId = e.currentTarget.dataset.id;
-    var activityId = this.data.activityInfo.id;
+    var userInfo = app.globalData.userInfo;
+    var index = e.currentTarget.dataset.index;
+    var activityId = e.currentTarget.dataset.id;
+    var bookId = e.currentTarget.dataset.bookid;
+    var bookInfo = this.data.bookInfo;
+    // var activityId = this.data.activityInfo.id;
     var openid = app.globalData.openid;
     var data = {};
     data.bookId = bookId;
@@ -132,6 +139,22 @@ Page({
         var result = res.data;
         if(result.code == '200') {
           // 成功了
+          console.log(userInfo);
+          userInfo.isJoin = 'true';
+          bookInfo[index].participates.push(userInfo);
+          self.setData({
+            bookInfo: bookInfo
+          })
+          console.log(bookInfo);
+          wx.showToast({
+            title: '签到成功！',
+            icon: 'none'
+          })
+        } else if(result.code == '999') {
+          wx.showToast({
+            title: '您已经签到过了哦',
+            icon: 'none'
+          })
         }
     })
   }

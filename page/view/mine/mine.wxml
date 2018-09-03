@@ -2,8 +2,8 @@
 <view class='mine'>
   <view class='userInfo'>
     <view class='part-userInfo'>
-      <image class='userInfo-avatar' src="{{ userInfo.avatarUrl }}"></image>
-      <text class='userInfo-nickName'>{{ userInfo.nickName }}</text>
+      <image class='userInfo-avatar' src="{{ userInfo.avatar_url }}"></image>
+      <text class='userInfo-nickName'>{{ userInfo.nick_name }}</text>
     </view>
 
     <image class='arrow' src='../../../image/arrow.png'></image>
